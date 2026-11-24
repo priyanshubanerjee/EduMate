@@ -12,25 +12,35 @@
           href="{{ url_for('static', filename='design.css') }}">
 
     <style>
+
+        /* MAIN PAGE */
         body {
             font-family: Arial, sans-serif;
-            background: #f4f7fb;
+            background: #051b42;
             margin: 0;
             padding: 20px;
+            color: white;
         }
 
+        /* QUIZ CONTAINER */
         .quiz-wrapper {
             max-width: 800px;
             margin: 40px auto;
-            background: white;
+            background: #071a3b;
             padding: 30px;
+            border: 2px solid #91ff24;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
+        /* HEADER */
         .quiz-header {
             text-align: center;
             margin-bottom: 25px;
+            background: #0a2048;
+            padding: 20px;
+            border: 1px solid #91ff24;
+            border-radius: 12px;
         }
 
         .quiz-brand {
@@ -45,24 +55,29 @@
             height: 65px;
             object-fit: contain;
             border-radius: 50%;
-            border: 2px solid #4568dc;
-            background: white;
+            border: 2px solid #FAFFAD;
+            background: #071a3b;
             padding: 3px;
         }
 
         .quiz-header h1 {
-            color: #263b70;
+            color: #FAFFAD;
         }
 
+        #quiz-purpose {
+            color: white;
+        }
+
+        /* PROGRESS */
         .progress-text {
-            color: #666;
+            color: #FAFFAD;
             text-align: center;
         }
 
         .progress-bar {
             width: 100%;
             height: 9px;
-            background: #e5e5e5;
+            background: #102b58;
             border-radius: 10px;
             margin: 15px 0 25px;
             overflow: hidden;
@@ -71,33 +86,49 @@
         .progress-fill {
             height: 100%;
             width: 0%;
-            background: #4568dc;
+            background: #FAFFAD;
             transition: width 0.3s;
         }
 
+        /* QUESTION */
         .question {
             font-size: 21px;
             font-weight: bold;
             margin-bottom: 25px;
+            color: #FAFFAD;
         }
 
+        /* OPTIONS */
         .option {
             display: block;
             padding: 15px;
             margin: 12px 0;
-            border: 1px solid #ddd;
+            background: #102b58;
+            color: white;
+            border: 1px solid #45618c;
             border-radius: 8px;
             cursor: pointer;
+            transition: 0.3s ease;
         }
 
         .option:hover {
-            background: #f0f3ff;
+            background: #07152f;
+            color: #FAFFAD;
+            border-color: #91ff24;
+        }
+
+        .option:has(input:checked) {
+            background: #020d29;
+            color: #FAFFAD;
+            border: 2px solid #91ff24;
         }
 
         .option input {
             margin-right: 10px;
+            accent-color: #FAFFAD;
         }
 
+        /* NAVIGATION BUTTONS */
         .quiz-buttons {
             display: flex;
             justify-content: space-between;
@@ -107,34 +138,89 @@
 
         .quiz-buttons button {
             padding: 12px 22px;
-            border: none;
+            border: 1px solid #91ff24;
             border-radius: 7px;
-            background: #4568dc;
-            color: white;
+            background: #102b58;
+            color: #FAFFAD;
             cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .quiz-buttons button:hover {
+            background: #020d29;
+            color: white;
         }
 
         .quiz-buttons button:disabled {
-            background: #aaa;
+            background: #182b48;
+            color: #aab4c5;
+            border-color: #45618c;
             cursor: not-allowed;
         }
 
-        #result {
-            margin-top: 25px;
-            line-height: 1.7;
+        /* RESULTS - HIDE EMPTY BOX */
+        #result:empty {
+            display: none !important;
         }
 
+        #result:not(:empty) {
+            display: block;
+            margin-top: 25px;
+            line-height: 1.7;
+            color: white;
+            background: #0a2048;
+            padding: 15px;
+            border: 1px solid #91ff24;
+            border-radius: 10px;
+        }
+
+        /* BACK TO HOMEPAGE */
         .back-link {
             display: block;
             text-align: center;
             margin-top: 25px;
-            color: #4568dc;
+            color: #FAFFAD;
             text-decoration: none;
+            transition: 0.3s ease;
         }
 
-        .hidden {
-            display: none;
+        .back-link:hover {
+            color: white;
+            text-decoration: underline;
         }
+
+        /* HIDDEN ELEMENTS */
+        .hidden {
+            display: none !important;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 600px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .quiz-wrapper {
+                margin: 15px auto;
+                padding: 18px;
+            }
+
+            .quiz-brand {
+                flex-direction: column;
+            }
+
+            .quiz-header h1 {
+                font-size: 25px;
+            }
+
+            .quiz-buttons button {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+        }
+
     </style>
 </head>
 
@@ -143,7 +229,6 @@
     <div class="quiz-wrapper">
 
         <!-- QUIZ HEADER -->
-
         <div class="quiz-header">
 
             <div class="quiz-brand">
@@ -163,9 +248,7 @@
 
         </div>
 
-
         <!-- PROGRESS -->
-
         <p class="progress-text" id="progress-text">
             Question 1 of 10
         </p>
@@ -174,9 +257,7 @@
             <div class="progress-fill" id="progress-fill"></div>
         </div>
 
-
         <!-- QUESTION AREA -->
-
         <div id="question-area">
 
             <h2 id="question-text" class="question">
@@ -187,9 +268,7 @@
 
         </div>
 
-
         <!-- NAVIGATION BUTTONS -->
-
         <div class="quiz-buttons" id="quiz-buttons">
 
             <button id="previous-btn" disabled>
@@ -206,21 +285,17 @@
 
         </div>
 
-
         <!-- RESULT AREA -->
-
         <div id="result"></div>
 
-
         <!-- BACK TO HOME -->
-
         <a href="{{ url_for('home') }}" class="back-link">
             ← Back to Homepage
         </a>
 
     </div>
 
-
+    <!-- QUIZ JAVASCRIPT -->
     <script src="{{ url_for('static', filename='quiz.js') }}"></script>
 
 </body>

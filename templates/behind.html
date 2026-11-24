@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Behind EduMate | Our Story</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='design.css') }}">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #051b42;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .behind-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        /* HERO SECTION */
+
+        .behind-hero {
+            text-align: center;
+            padding: 65px 20px;
+            border: 2px solid #91ff24;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #102b58, #163b78);
+        }
+
+        .behind-hero h1 {
+            color: rgb(250, 255, 173);
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .behind-hero p {
+            color: rgb(177, 254, 177);
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        /* COMMON SECTIONS */
+
+        .behind-section {
+            background: #102b58;
+            border: 2px solid #91ff24;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .behind-section h2 {
+            color: rgb(255, 246, 83);
+            font-size: 28px;
+            margin-top: 0;
+        }
+
+        .behind-section p {
+            color: white;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* FOUNDER */
+
+        .founder-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .founder-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .founder-name {
+            color: rgb(177, 254, 177);
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .founder-role {
+            color: #91ff24;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .founder-description {
+            margin-top: 20px;
+        }
+
+        /* PROBLEM CARDS */
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .problem-card {
+            background: #183968;
+            border: 1px solid #91ff24;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .problem-card h3 {
+            color: rgb(255, 246, 83);
+            font-size: 20px;
+        }
+
+        .problem-card p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* TECHNOLOGY */
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .tech-item {
+            background: #91ff24;
+            color: #051b42;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /* MISSION */
+
+        .mission-section {
+            text-align: center;
+        }
+
+        .mission-section h2 {
+            font-size: 30px;
+        }
+
+        .mission-section p {
+            font-size: 19px;
+        }
+
+        /* FOOTER */
+
+        .behind-footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: rgb(177, 254, 177);
+        }
+
+        .back-home {
+            display: inline-block;
+            background: #91ff24;
+            color: #051b42;
+            padding: 13px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .back-home:hover {
+            background: yellow;
+            transform: scale(1.04);
+        }
+
+        /* MOBILE RESPONSIVE */
+
+        @media (max-width: 600px) {
+
+            .behind-container {
+                width: 92%;
+                margin: 18px auto;
+            }
+
+            .behind-hero {
+                padding: 40px 15px;
+            }
+
+            .behind-hero h1 {
+                font-size: 30px;
+            }
+
+            .behind-hero p {
+                font-size: 16px;
+            }
+
+            .behind-section {
+                padding: 20px 16px;
+                margin: 20px 0;
+            }
+
+            .behind-section h2 {
+                font-size: 23px;
+            }
+
+            .behind-section p {
+                font-size: 15px;
+            }
+
+            .founder-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .founder-name {
+                font-size: 25px;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .tech-list {
+                gap: 9px;
+            }
+
+            .tech-item {
+                font-size: 13px;
+                padding: 10px 13px;
+            }
+
+            .mission-section h2 {
+                font-size: 24px;
+            }
+
+            .mission-section p {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main class="behind-container">
+
+        <!-- HERO -->
+
+        <section class="behind-hero">
+
+            <h1>Behind EduMate</h1>
+
+            <p>
+                The idea, the creator, the technology
+                and the mission behind EduMate.
+            </p>
+
+            <p>
+                Every great idea begins with a purpose.
+            </p>
+
+        </section>
+
+
+        <!-- FOUNDER -->
+
+        <section class="behind-section founder-section">
+
+            <div class="founder-content">
+
+                <h2>Meet the Founder & Creator of EduMate</h2>
+
+                <h3 class="founder-name">
+                    Priyanshu Banerjee
+                </h3>
+
+                <div class="founder-role">
+                    Founder & Creator of EduMate
+                </div>
+
+                <p class="founder-description">
+
+                    I am a Bachelor of Computer Applications (BCA)
+                    student with an interest in technology,
+                    programming and artificial intelligence.
+
+                    EduMate is a project I started building
+                    to combine my interest in technology with
+                    a meaningful educational purpose.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- BEGINNING -->
+
+        <section class="behind-section">
+
+            <h2>The Beginning</h2>
+
+            <p>
+
+                EduMate started with a simple thought:
+
+                Why should quality learning support be
+                difficult to access?
+
+            </p>
+
+            <p>
+
+                Many students struggle with difficult topics.
+                Some cannot afford private tuition, while
+                others hesitate to ask questions in classrooms.
+
+                I wanted to build a platform where students
+                could learn at their own pace, ask questions
+                freely and improve their understanding.
+
+            </p>
+
+            <p>
+
+                That idea became EduMate —
+                Your AI Study Companion.
+
+            </p>
+
+        </section>
+
+
+        <!-- PROBLEMS -->
+
+        <section class="behind-section">
+
+            <h2>What Problem Does EduMate Solve?</h2>
+
+            <p>
+                EduMate aims to make learning more accessible
+                and comfortable for students.
+            </p>
+
+            <div class="problem-grid">
+
+                <div class="problem-card">
+
+                    <h3>Expensive Tuition</h3>
+
+                    <p>
+                        Not every student can afford private
+                        tuition. EduMate aims to provide
+                        accessible learning assistance.
+                    </p>
+
+                </div>
+
+
+                <div class="problem-card">
+
+                    <h3>Difficulty Understanding</h3>
+
+                    <p>
+                        Students can upload study materials
+                        and ask AI to explain difficult topics
+                        in simpler language.
+                    </p>
+
+                </div>
+
+
+                <div class="problem-card">
+
+                    <h3>Fear of Asking Questions</h3>
+
+                    <p>
+                        Students can ask questions without
+                        worrying about embarrassment or
+                        being judged.
+                    </p>
+
+                </div>
+
+
+                <div class="problem-card">
+
+                    <h3>Lack of Practice</h3>
+
+                    <p>
+                        AI-generated quizzes help students
+                        practise and check their understanding.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOLUTION -->
+
+        <section class="behind-section">
+
+            <h2>Our Solution</h2>
+
+            <p>
+
+                EduMate brings useful AI-powered learning
+                features together in one platform.
+
+            </p>
+
+            <p>
+                Students can upload PDFs, learn difficult
+                concepts, ask doubts and generate quizzes
+                to practise their knowledge.
+            </p>
+
+            <p>
+                The goal is to make learning simpler,
+                more interactive and less stressful.
+            </p>
+
+        </section>
+
+
+        <!-- TECHNOLOGY -->
+
+        
+
+        <!-- FUTURE VISION -->
+
+        <section class="behind-section">
+
+            <h2>Future Vision</h2>
+
+            <p>
+
+                EduMate is just the beginning.
+
+                My vision is to continue improving the
+                platform by introducing more useful
+                educational features, better learning
+                experiences and tools that help students
+                grow.
+
+            </p>
+
+            <p>
+
+                I want EduMate to become a platform where
+                every student feels comfortable learning
+                and exploring new ideas.
+
+            </p>
+
+        </section>
+
+
+        <!-- MISSION -->
+
+        <section class="behind-section mission-section">
+
+            <h2>Our Mission</h2>
+
+            <p>
+
+                Making learning simpler, more accessible
+                and less stressful for every student.
+
+            </p>
+
+            <h3 style="color: #91ff24;">
+                EduMate — Your AI Study Companion
+            </h3>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="behind-footer">
+
+            <p>
+                Created with purpose by
+                <strong>Priyanshu Banerjee</strong>
+            </p>
+
+            <p>
+                Founder & Creator of EduMate
+            </p>
+
+            <a href="{{ url_for('home') }}" class="back-home">
+                Back to Home
+            </a>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>

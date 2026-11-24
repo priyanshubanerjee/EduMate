@@ -33,8 +33,6 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GEMINI_MODEL = "gemini-flash-lite-latest"
 GROQ_MODEL = "openai/gpt-oss-20b"
 
-# Diagnostic routes are disabled by default.
-# Enable locally only when you need to test AI connections.
 ENABLE_DIAGNOSTIC_ROUTES = (
     os.getenv("ENABLE_DIAGNOSTIC_ROUTES", "false").lower() == "true"
 )
@@ -59,7 +57,6 @@ if GROQ_API_KEY:
 
 app = Flask(__name__)
 
-# Secret key must be provided through environment variables.
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
 if not app.secret_key:
@@ -68,15 +65,11 @@ if not app.secret_key:
         "Configure it in your environment."
     )
 
-# Maximum PDF upload size: 10 MB
 app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024
 
-# Session security
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 
-# In-memory storage
-# Note: This data will be lost when the server restarts.
 learn_store = {}
 learn_chats = {}
 
@@ -100,10 +93,6 @@ def generate_ai_text(prompt, json_mode=False, max_tokens=None):
 
     if max_tokens is None:
         max_tokens = 6000 if json_mode else 1400
-
-    # ---------------------------------
-    # TRY GROQ FIRST
-    # ---------------------------------
 
     if groq_client is not None:
 
@@ -151,9 +140,7 @@ def generate_ai_text(prompt, json_mode=False, max_tokens=None):
 
         errors.append("Groq API key is missing.")
 
-    # ---------------------------------
     # GEMINI BACKUP
-    # ---------------------------------
 
     if gemini_client is not None:
 
@@ -195,10 +182,6 @@ def generate_ai_text(prompt, json_mode=False, max_tokens=None):
 
         errors.append("Gemini API key is missing.")
 
-    # ---------------------------------
-    # BOTH FAILED
-    # ---------------------------------
-
     print("\n========== BOTH AI SERVICES FAILED ==========")
     print("\n".join(errors))
     print("=============================================\n")
@@ -227,11 +210,7 @@ def extract_json(text):
         flags=re.IGNORECASE
     )
 
-    cleaned = re.sub(
-        r"\s*```$",
-        "",
-        cleaned
-    )
+    cleaned = re.sub(r"\s*```$", "", cleaned)
 
     try:
         return json.loads(cleaned)
@@ -377,14 +356,9 @@ STUDY MATERIAL:
             f"Expected 10 questions, received {received}."
         )
 
-    # Balanced answer positions:
-    # A = 3, B = 3, C = 2, D = 2
-
     answer_positions = list("AAABBBCCDD")
 
     random.shuffle(answer_positions)
-
-    # Validate and randomize options
 
     for index, question in enumerate(questions):
 
@@ -478,7 +452,6 @@ def generate_learning_response(
     if chat_history is None:
         chat_history = []
 
-    # Keep only the latest 6 messages
     recent_history = chat_history[-6:]
 
     conversation = ""
@@ -494,7 +467,6 @@ def generate_learning_response(
                 f"{role.upper()}: {content[:1200]}\n"
             )
 
-    # Use a smaller PDF context for faster responses
     study_material = pdf_text[:12000]
 
     prompt = f"""
@@ -581,7 +553,17 @@ def about():
 
 
 # =====================================
-# 12. QUIZ PAGE
+# 12. BEHIND EDUMATE PAGE
+# =====================================
+
+@app.route("/behind")
+def behind():
+
+    return render_template("behind.html")
+
+
+# =====================================
+# 13. QUIZ PAGE
 # =====================================
 
 @app.route("/quiz")
@@ -591,7 +573,7 @@ def quiz():
 
 
 # =====================================
-# 13. LEARN PAGE
+# 14. LEARN PAGE
 # =====================================
 
 @app.route("/learn")
@@ -601,7 +583,7 @@ def learn():
 
 
 # =====================================
-# 14. PDF UPLOAD - LEARN NOW
+# 15. PDF UPLOAD - LEARN NOW
 # =====================================
 
 @app.route("/upload-learn", methods=["POST"])
@@ -665,7 +647,7 @@ def upload_learn():
 
 
 # =====================================
-# 15. ASK DOUBT - LEARN NOW
+# 16. ASK DOUBT - LEARN NOW
 # =====================================
 
 @app.route("/ask-doubt", methods=["POST"])
@@ -751,7 +733,7 @@ def ask_doubt():
 
 
 # =====================================
-# 16. PDF UPLOAD - TEST NOW
+# 17. PDF UPLOAD - TEST NOW
 # =====================================
 
 @app.route("/upload", methods=["POST"])
@@ -809,7 +791,7 @@ def upload():
 
 
 # =====================================
-# 17. TEST GROQ
+# 18. TEST GROQ
 # =====================================
 
 @app.route("/test-groq")
@@ -862,7 +844,7 @@ def test_groq():
 
 
 # =====================================
-# 18. TEST GEMINI
+# 19. TEST GEMINI
 # =====================================
 
 @app.route("/test-gemini")
@@ -907,7 +889,7 @@ def test_gemini():
 
 
 # =====================================
-# 19. TEST PRIMARY AI CONNECTION
+# 20. TEST PRIMARY AI CONNECTION
 # =====================================
 
 @app.route("/test-ai")
@@ -939,7 +921,7 @@ def test_ai():
 
 
 # =====================================
-# 20. RUN APPLICATION
+# 21. RUN APPLICATION
 # =====================================
 
 if __name__ == "__main__":

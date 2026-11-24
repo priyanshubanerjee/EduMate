@@ -1,10 +1,34 @@
 
+/* =========================================
+   EDUMATE - GLOBAL DESIGN
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     background-color: #051b42;
     margin: 0;
     padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =========================================
+   HOMEPAGE - HEADER
+========================================= */
 
 #logo {
     width: 170px;
@@ -13,7 +37,6 @@ body {
     display: block;
     margin: 1px auto;
 }
-
 
 #h01 {
     color: rgb(250, 255, 173);
@@ -27,7 +50,6 @@ body {
     text-align: center;
 }
 
-
 #h01::before,
 #h01::after {
     content: "";
@@ -39,6 +61,9 @@ body {
     margin: 0 20px;
 }
 
+/* =========================================
+   HOMEPAGE - WELCOME SECTION
+========================================= */
 
 .welcome {
     display: flex;
@@ -75,6 +100,9 @@ body {
     font-size: 30px;
 }
 
+/* =========================================
+   HOMEPAGE - LEARN AND TEST SECTIONS
+========================================= */
 
 .upload-container,
 .study-container {
@@ -82,12 +110,9 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 30px;
-
     width: 95%;
     margin: 30px auto;
 }
-
-
 
 #exam-logo {
     width: 340px;
@@ -95,25 +120,22 @@ body {
     object-fit: contain;
     flex-shrink: 0;
 }
-#learn-logo{
-     width: 450px;
+
+#learn-logo {
+    width: 450px;
     height: 490px;
     object-fit: contain;
     flex-shrink: 0;
 }
-
 
 .upload-section,
 .test-section {
     flex: 1;
     min-width: 0;
     height: 350px;
-    box-sizing: border-box;
-
     background-color: #102b58;
     border: 3px solid #91ff24;
     border-radius: 12px;
-
     padding: 20px;
 
     display: flex;
@@ -121,7 +143,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 .upload-section h2,
 .test-section h2 {
@@ -145,24 +166,22 @@ body {
     max-width: 100%;
 }
 
+/* HOMEPAGE BUTTONS */
 
 #learn-btn,
 #startTest {
     display: block;
     margin: 15px auto;
     padding: 12px 35px;
-
     background-color: #91ff24;
     color: navy;
-
     font-size: 18px;
     font-weight: bold;
-
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    transition: 0.3s;
 }
-
 
 #learn-btn:hover,
 #startTest:hover {
@@ -170,13 +189,9 @@ body {
     transform: scale(1.05);
 }
 
-
-.my-line {
-    width: 90%;
-    border: none;
-    border-top: 3px solid #91ff24;
-    margin: 30px auto;
-}
+/* =========================================
+   HOMEPAGE - DIVIDER
+========================================= */
 
 .my-line {
     width: 90%;
@@ -185,8 +200,9 @@ body {
     margin: 30px auto;
 }
 
-
-
+/* =========================================
+   ABOUT EDUMATE PAGE
+========================================= */
 
 .about-header {
     text-align: center;
@@ -236,6 +252,8 @@ body {
     margin: 35px 0;
 }
 
+/* HOMEPAGE LINKS */
+
 .home-link {
     display: inline-block;
     background-color: #ffebc2;
@@ -246,6 +264,7 @@ body {
     padding: 12px 30px;
     border-radius: 8px;
     margin: 20px;
+    transition: 0.3s;
 }
 
 .home-link:hover {
@@ -253,86 +272,100 @@ body {
     transform: scale(1.05);
 }
 
+/* =========================================
+   EDUMATE - TEST YOUR KNOWLEDGE PAGE
+   DARK BLUE + LEMON YELLOW + WHITE
+========================================= */
 
-.quiz-container {
-    max-width: 800px;
-    margin: 30px auto;
+/* MAIN QUIZ PAGE */
+
+body.quiz-page,
+.quiz-page {
+    font-family: Arial, sans-serif;
+    background-color: #051b42 !important;
+    margin: 0;
     padding: 25px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    color: white;
 }
 
-.question-box {
-    margin: 20px 0;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
+/* MAIN QUIZ CONTAINER */
 
-.question-box label {
-    display: inline-block;
-    margin: 8px 0;
-    cursor: pointer;
-}
-
-.quiz-container button {
-    padding: 12px 25px;
-    margin-top: 15px;
-    cursor: pointer;
-}
-
-.quiz-result {
-    margin-top: 20px;
-    line-height: 1.6;
-}
-
-/* =====================================
-   EDUMATE AI QUIZ PAGE
-===================================== */
-
+.quiz-container,
 .quiz-wrapper {
-    max-width: 800px;
-    margin: 40px auto;
+    width: 95%;
+    max-width: 900px;
+    margin: 30px auto;
     padding: 30px;
-    background: #ffffff;
+    background: #071a3b !important;
+    border: 2px solid #91ff24;
     border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 
-/* Quiz heading */
+/* QUIZ HEADER */
 
 .quiz-header {
+    background: #0a2048 !important;
+    color: white;
     text-align: center;
+    padding: 30px 20px;
+    border-radius: 14px;
     margin-bottom: 25px;
+    border: 2px solid #91ff24;
+}
+
+.quiz-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.quiz-robot {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 2px solid #FAFFAD;
+    background: #071a3b;
+    padding: 3px;
 }
 
 .quiz-header h1 {
-    color: #263b70;
+    color: #FAFFAD !important;
     font-size: 30px;
+    text-align: center;
+    margin: 0 0 12px;
 }
 
-/* Quiz purpose */
+.quiz-header p {
+    color: white !important;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* QUIZ PURPOSE */
 
 #quiz-purpose {
-    color: #666;
+    color: #FAFFAD !important;
     font-size: 15px;
+    text-align: center;
 }
 
-/* Progress text */
+/* PROGRESS */
 
 .progress-text {
-    color: #666;
+    color: #FAFFAD !important;
     text-align: center;
     font-size: 14px;
 }
 
-/* Progress bar */
-
 .progress-bar {
     width: 100%;
-    height: 9px;
-    background: #e5e5e5;
+    height: 10px;
+    background: #020d29 !important;
     border-radius: 10px;
     margin: 15px 0 25px;
     overflow: hidden;
@@ -341,148 +374,206 @@ body {
 .progress-fill {
     height: 100%;
     width: 0%;
-    background: #4568dc;
+    background: #FAFFAD !important;
     transition: width 0.3s ease;
+    border-radius: 10px;
 }
 
-/* Question */
+/* QUESTION AREA */
+
+#question-area {
+    background: #0a2048 !important;
+    margin: 20px 0;
+    padding: 20px;
+    border: 2px solid #91ff24;
+    border-radius: 12px;
+}
 
 .question {
     font-size: 21px;
     font-weight: bold;
-    color: #263b70;
+    color: #FAFFAD !important;
     margin-bottom: 25px;
     line-height: 1.5;
 }
 
-/* Answer options */
+#question-text {
+    color: #FAFFAD !important;
+}
+
+/* ANSWER OPTIONS */
 
 .option {
     display: block;
     padding: 15px;
     margin: 12px 0;
-    border: 1px solid #ddd;
+    background: #102b58 !important;
+    border: 1px solid #45618c;
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.2s;
-    color: #333;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+    color: white !important;
+    line-height: 1.5;
 }
 
 .option:hover {
-    background: #f0f3ff;
-    border-color: #4568dc;
+    background: #07152f !important;
+    border-color: #91ff24;
+    color: #FAFFAD !important;
 }
 
 .option input {
     margin-right: 10px;
-    accent-color: #4568dc;
+    accent-color: #FAFFAD;
+    cursor: pointer;
 }
 
-/* Navigation buttons */
+/* SELECTED ANSWER */
+
+.option:has(input:checked),
+.option.selected {
+    background: #020d29 !important;
+    border: 2px solid #91ff24 !important;
+    color: #FAFFAD !important;
+}
+
+/* OPTION TEXT */
+
+.option label,
+.option span {
+    color: inherit;
+}
+
+/* QUIZ NAVIGATION BUTTONS */
 
 .quiz-buttons {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 12px;
     margin-top: 30px;
 }
 
-.quiz-buttons button {
-    padding: 12px 22px;
-    border: none;
-    border-radius: 7px;
-    background: #4568dc;
-    color: white;
+.quiz-buttons button,
+.quiz-container button,
+.quiz-wrapper button {
+    padding: 12px 25px;
+    border: 1px solid #91ff24;
+    border-radius: 8px;
+    background: #102b58 !important;
+    color: #FAFFAD !important;
     cursor: pointer;
-    font-size: 15px;
-    transition: 0.2s;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.quiz-buttons button:hover {
-    background: #304fbd;
+.quiz-buttons button:hover,
+.quiz-container button:hover,
+.quiz-wrapper button:hover {
+    background: #020d29 !important;
+    color: white !important;
 }
 
 .quiz-buttons button:disabled {
-    background: #aaa;
+    background: #182b48 !important;
+    color: #aab4c5 !important;
+    border-color: #45618c;
     cursor: not-allowed;
+    transform: none;
 }
 
-/* Hidden elements */
+/* HIDDEN ELEMENTS */
 
 .hidden {
     display: none !important;
 }
 
-/* Quiz result */
+/* QUIZ RESULT */
 
-#result {
+#result,
+.quiz-result {
     margin-top: 25px;
+    padding: 20px;
+    background: #071a3b !important;
+    border: 2px solid #91ff24;
+    border-radius: 12px;
+    color: white !important;
     line-height: 1.7;
-    color: #333;
 }
 
 #result h2 {
-    color: #263b70;
+    color: #FAFFAD !important;
     text-align: center;
     margin-bottom: 25px;
 }
 
 #result div {
-    background: #f8f9fc;
+    background: #102b58 !important;
+    color: white !important;
     margin-bottom: 20px;
     padding: 15px;
     border-radius: 8px;
 }
 
-/* Back to homepage */
+#result p {
+    color: white !important;
+}
+
+#result strong {
+    color: #FAFFAD;
+}
+
+/* CORRECT AND WRONG ANSWERS */
+
+.option.correct {
+    background: #12452d !important;
+    color: white !important;
+    border-color: #45d483 !important;
+}
+
+.option.wrong {
+    background: #591d2a !important;
+    color: white !important;
+    border-color: #ff7777 !important;
+}
+
+/* BACK TO HOMEPAGE BUTTON */
 
 .back-link {
-    display: block;
-    text-align: center;
-    margin-top: 25px;
-    color: #4568dc;
+    display: inline-block;
+    background-color: #FAFFAD;
+    color: #051b42 !important;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 13px 28px;
+    border-radius: 9px;
+    margin: 25px auto;
+    transition: 0.3s;
+    text-align: center;
 }
 
 .back-link:hover {
-    text-decoration: underline;
+    background-color: white;
+    transform: translateY(-3px);
+    text-decoration: none;
 }
 
-/* Mobile responsive */
-
-@media (max-width: 600px) {
-
-    .quiz-wrapper {
-        margin: 10px auto;
-        padding: 20px;
-    }
-
-    .quiz-header h1 {
-        font-size: 24px;
-    }
-
-    .question {
-        font-size: 18px;
-    }
-
-    .quiz-buttons button {
-        padding: 10px 15px;
-        font-size: 13px;
-    }
-
+.quiz-footer {
+    text-align: center;
+    margin: 25px auto;
 }
 
-/* =====================================
+/* =========================================
    EDUMATE - LEARN NOW PAGE
-===================================== */
+========================================= */
 
 .learn-page {
     font-family: Arial, sans-serif;
-    background: #f4f7fb;
+    background: #013375;
     margin: 0;
     padding: 25px;
     min-height: 100vh;
-    box-sizing: border-box;
 }
 
 .learn-container {
@@ -490,7 +581,7 @@ body {
     margin: 30px auto;
 }
 
-/* HEADER */
+/* LEARN HEADER */
 
 .learn-header {
     background: linear-gradient(135deg, #2563eb, #7c3aed);
@@ -513,10 +604,10 @@ body {
     opacity: 0.95;
 }
 
-/* STUDY MATERIAL */
+/* LEARN STUDY MATERIAL */
 
 .study-section {
-    background: white;
+    background: rgb(25, 15, 111);
     padding: 25px;
     border-radius: 14px;
     margin-bottom: 25px;
@@ -524,37 +615,37 @@ body {
 }
 
 .study-section h2 {
-    color: #1e293b;
+    color: #bfff40;
     margin-top: 0;
 }
 
 #pdf-status {
-    color: #16a34a;
+    color: #ffdc83;
     font-size: 15px;
     font-weight: bold;
 }
 
 .learning-note {
-    background: #eff6ff;
-    color: #1d4ed8;
+    background: rgb(255, 231, 52);
+    color: #1f56c3;
     padding: 13px;
-    border-left: 4px solid #2563eb;
+    border-left: 4px solid #14268f;
     border-radius: 6px;
     margin-top: 15px;
     font-size: 14px;
 }
 
-/* CHAT SECTION */
+/* LEARN CHAT SECTION */
 
 .chat-section {
-    background: white;
+    background: rgb(25, 15, 111);
     padding: 25px;
     border-radius: 14px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
 }
 
 .chat-section h2 {
-    color: #1e293b;
+    color: #fee035;
     margin-top: 0;
 }
 
@@ -563,7 +654,7 @@ body {
 .chat-box {
     height: 400px;
     overflow-y: auto;
-    background: #f8fafc;
+    background: #0467cb;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 18px;
@@ -576,7 +667,7 @@ body {
 
 .bot-message {
     align-self: flex-start;
-    background: #1c0077;
+    background: #01134e;
     color: #f8f5ea;
     padding: 13px 16px;
     border-radius: 12px 12px 12px 2px;
@@ -610,9 +701,10 @@ body {
 
 #question-input {
     flex: 1;
+    min-width: 0;
     padding: 14px;
     border: 1px solid #cbd5e1;
-    border-radius: 9px;
+    border-radius: 8px;
     font-size: 15px;
     resize: vertical;
     outline: none;
@@ -624,12 +716,20 @@ body {
     box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
 }
 
-/* ASK BUTTON */
+/* ASK EDUMATE BUTTON */
+
+#ask-button,
+#ask-button:hover,
+#ask-button:focus,
+#ask-button:active {
+    background: #FAFFAD !important;
+    color: #051b42 !important;
+    border: 1px solid #91ff24 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
 
 #ask-button {
-    background: #331f76;
-    color: white;
-    border: none;
     padding: 13px 22px;
     border-radius: 9px;
     font-size: 15px;
@@ -638,16 +738,16 @@ body {
     transition: 0.2s;
 }
 
-#ask-button:hover {
-    background: #1d4ed8;
+#ask-button:active {
+    transform: scale(0.98);
 }
 
 #ask-button:disabled {
-    background: #94a3b8;
+    background: #94a3b8 !important;
     cursor: not-allowed;
 }
 
-/* STATUS */
+/* CHAT STATUS */
 
 #chat-status {
     color: #64748b;
@@ -655,7 +755,7 @@ body {
     margin-top: 12px;
 }
 
-/* BACK LINK */
+/* LEARN BACK LINK */
 
 .learn-page .back-link {
     display: inline-block;
@@ -665,18 +765,16 @@ body {
     font-weight: bold;
 }
 
-.learn-page .back-link:hover {
-    text-decoration: underline;
-}
-
-/* =====================================
-   EDUMATE MARKDOWN ANSWER DESIGN
-===================================== */
+/* =========================================
+   EDUMATE - MARKDOWN ANSWER DESIGN
+========================================= */
 
 .bot-answer {
+    flex: 1;
     min-width: 0;
     line-height: 1.7;
     overflow-wrap: anywhere;
+    white-space: normal;
 }
 
 .bot-answer h1,
@@ -716,10 +814,11 @@ body {
     border-radius: 10px;
     overflow-x: auto;
     white-space: pre;
+    max-width: 100%;
 }
 
 .bot-answer code {
-    background: #dbeafe;
+    background: #5397ef;
     color: #163b78;
     padding: 2px 5px;
     border-radius: 4px;
@@ -740,43 +839,10 @@ body {
 
 .bot-answer hr {
     border: none;
-    border-top: 1px solid #bfdbfe;
+    border-top: 1px solid #17539c;
     margin: 15px 0;
 }
 
-
-/* =====================================
-   EDUMATE CHATBOT AVATAR + LAYOUT
-===================================== */
-
-/* Arrange robot and answer side by side */
-.bot-message.bot-welcome {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    max-width: 90%;
-    white-space: normal;
-}
-
-/* Robot profile picture */
-.bot-message.bot-welcome img {
-    width: 42px;
-    height: 42px;
-    min-width: 42px;
-    object-fit: contain;
-    border-radius: 50%;
-    background: white;
-    padding: 3px;
-}
-
-/* Markdown answer content */
-.bot-answer {
-    flex: 1;
-    min-width: 0;
-    white-space: normal;
-}
-
-/* Make Markdown paragraphs look clean */
 .bot-answer p:first-child {
     margin-top: 0;
 }
@@ -785,61 +851,35 @@ body {
     margin-bottom: 0;
 }
 
-/* Keep code blocks inside the chat */
-.bot-answer pre {
-    max-width: 100%;
-    box-sizing: border-box;
+/* CHAT ROBOT AVATAR */
+
+.bot-message.bot-welcome {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 90%;
+    white-space: normal;
 }
 
-/* Mobile chat layout */
-@media (max-width: 600px) {
-
-    .bot-message.bot-welcome {
-        max-width: 100%;
-        gap: 8px;
-        padding: 10px;
-    }
-
-    .bot-message.bot-welcome img {
-        width: 34px;
-        height: 34px;
-        min-width: 34px;
-    }
-
-}
-
-/* =========================================
-   EDUMATE - COMPLETE MOBILE RESPONSIVE FIX
-========================================= */
-
-/* Global responsive foundation */
-* {
-    box-sizing: border-box;
-}
-
-html {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-/* Images should never overflow */
-img {
-    max-width: 100%;
-    height: auto;
+.bot-message.bot-welcome img {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: rgb(35, 37, 155);
+    padding: 3px;
+    flex-shrink: 0;
 }
 
 /* =========================================
-   TABLETS AND MOBILE PHONES
+   MOBILE RESPONSIVE DESIGN
 ========================================= */
 
 @media screen and (max-width: 768px) {
 
-    /* MAIN HEADING */
+    /* HOMEPAGE HEADER */
+
     #logo {
         width: 140px;
         height: 70px;
@@ -860,7 +900,8 @@ img {
         padding: 0 15px;
     }
 
-    /* WELCOME SECTION */
+    /* WELCOME */
+
     .welcome {
         flex-direction: column;
         gap: 15px;
@@ -894,15 +935,14 @@ img {
         font-size: 23px;
     }
 
-    /* UPLOAD AND TEST SECTIONS */
+    /* HOMEPAGE LEARN AND TEST */
+
     .upload-container,
     .study-container {
-        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 20px;
-
         width: 100%;
         margin: 25px auto;
         padding: 0 15px;
@@ -917,24 +957,15 @@ img {
         flex-shrink: 1;
     }
 
-    /* GREEN OUTER BOXES */
     .upload-section,
     .test-section {
         width: 100%;
         max-width: 500px;
         min-width: 0;
-
         height: auto;
         min-height: 260px;
-
         padding: 22px 16px;
         margin: 0 auto;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
         border: 2px solid #91ff24;
         border-radius: 15px;
     }
@@ -969,13 +1000,13 @@ img {
         font-size: 16px;
     }
 
-    /* DIVIDER */
     .my-line {
         width: 90%;
         margin: 22px auto;
     }
 
     /* ABOUT PAGE */
+
     .about-header {
         padding: 15px;
     }
@@ -1009,25 +1040,44 @@ img {
         line-height: 1.7;
     }
 
+    .home-link {
+        max-width: calc(100% - 30px);
+        margin: 15px;
+        padding: 12px 20px;
+    }
+
     /* QUIZ PAGE */
+
+    .quiz-page {
+        padding: 12px;
+    }
+
     .quiz-container,
     .quiz-wrapper {
-        width: calc(100% - 24px);
+        width: 100%;
         max-width: 100%;
         margin: 15px auto;
         padding: 18px;
+    }
+
+    .quiz-header {
+        padding: 22px 15px;
     }
 
     .quiz-header h1 {
         font-size: 24px;
     }
 
+    .quiz-header p {
+        font-size: 14px;
+    }
+
     .question {
         font-size: 18px;
     }
 
-    .question-box {
-        padding: 12px;
+    #question-area {
+        padding: 14px;
     }
 
     .option {
@@ -1041,10 +1091,17 @@ img {
 
     .quiz-buttons button {
         flex: 1 1 110px;
-        padding: 12px 8px;
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+
+    #result,
+    .quiz-result {
+        padding: 15px;
     }
 
     /* LEARN PAGE */
+
     .learn-page {
         padding: 12px;
     }
@@ -1073,7 +1130,6 @@ img {
         margin-bottom: 18px;
     }
 
-    /* CHAT BOX */
     .chat-box {
         height: 380px;
         padding: 12px;
@@ -1093,12 +1149,11 @@ img {
     }
 
     .bot-message.bot-welcome img {
-        width: 32px;
-        height: 32px;
-        min-width: 32px;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
     }
 
-    /* CHAT INPUT */
     .chat-input-area {
         flex-direction: column;
         gap: 10px;
@@ -1115,7 +1170,6 @@ img {
         padding: 13px;
     }
 
-    /* CODE BLOCKS */
     .bot-answer pre {
         max-width: 100%;
         overflow-x: auto;
@@ -1126,17 +1180,10 @@ img {
         max-width: 100%;
         height: auto;
     }
-
-    /* BACK LINKS */
-    .home-link {
-        max-width: calc(100% - 30px);
-        margin: 15px;
-        padding: 12px 20px;
-    }
 }
 
 /* =========================================
-   SMALL PHONES
+   SMALL MOBILE PHONES
 ========================================= */
 
 @media screen and (max-width: 380px) {
@@ -1160,11 +1207,64 @@ img {
         font-size: 15px;
     }
 
+    .quiz-container,
     .quiz-wrapper {
         padding: 13px;
+    }
+
+    .quiz-header h1 {
+        font-size: 21px;
+    }
+
+    .question {
+        font-size: 17px;
+    }
+
+    .quiz-buttons button {
+        font-size: 13px;
+        padding: 10px;
     }
 
     .learn-page {
         padding: 8px;
     }
+}
+
+/* =========================================
+   ASK EDUMATE BUTTON - FINAL TOUCH FIX
+========================================= */
+
+#ask-button {
+    background: #FAFFAD !important;
+    color: #051b42 !important;
+    border: 2px solid #91ff24 !important;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#ask-button:hover {
+    background: #91ff24 !important;
+    color: #051b42 !important;
+}
+
+#ask-button:active {
+    background: #020d29 !important;
+    color: #FAFFAD !important;
+    border-color: #FAFFAD !important;
+    transform: scale(0.96);
+}
+
+#ask-button:focus {
+    background: #FAFFAD !important;
+    color: #051b42 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#ask-button:disabled {
+    background: #64748b !important;
+    color: white !important;
+    border-color: #64748b !important;
+    cursor: not-allowed;
+    transform: none;
 }

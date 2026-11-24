@@ -12,6 +12,15 @@
           href="{{ url_for('static', filename='design.css') }}">
 
     <style>
+
+        /* PAGE BACKGROUND */
+
+        body.learn-page {
+            background-color: #051b42;
+            margin: 0;
+            padding: 20px;
+        }
+
         /* HEADER */
 
         .learn-brand {
@@ -177,7 +186,64 @@
             margin: 15px 0;
         }
 
+        /* FOOTER */
+
+        .learn-footer {
+            text-align: center;
+            margin: 30px 0 15px;
+        }
+
+        /* GO TO HOMEPAGE BUTTON */
+
+        .back-button {
+            display: inline-block;
+            background-color: rgb(250, 255, 173);
+            color: #051b42 !important;
+            text-decoration: none !important;
+            padding: 13px 28px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid rgb(250, 255, 173);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: transparent;
+            color: rgb(250, 255, 173) !important;
+            transform: translateY(-3px);
+        }
+
+        /* MOBILE RESPONSIVE */
+
+        @media (max-width: 600px) {
+
+            body.learn-page {
+                padding: 10px;
+            }
+
+            .learn-brand {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .learn-robot {
+                width: 65px;
+                height: 65px;
+            }
+
+            .learn-brand h1 {
+                font-size: 25px;
+                text-align: center;
+            }
+
+            .back-button {
+                padding: 12px 22px;
+            }
+        }
+
     </style>
+
 </head>
 
 <body class="learn-page">
@@ -272,9 +338,13 @@
 
         <!-- FOOTER -->
 
-        <a href="{{ url_for('home') }}" class="back-link">
-            ← Back to Homepage
-        </a>
+        <div class="learn-footer">
+
+            <a href="{{ url_for('home') }}" class="back-button">
+                ← Go to Homepage
+            </a>
+
+        </div>
 
     </div>
 

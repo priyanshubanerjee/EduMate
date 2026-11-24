@@ -111,15 +111,29 @@
 
     </div>
 
-    <!-- JavaScript connection -->
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <br><br>
 
-    <!-- About page link -->
+    <!-- Footer navigation -->
     <center>
+
+        <!-- About EduMate -->
         <a href="{{ url_for('about') }}" class="home-link">
             About EduMate
         </a>
+
+        <br><br>
+
+        <!-- Behind EduMate -->
+        <a href="{{ url_for('behind') }}" class="home-link">
+            Behind EduMate
+        </a>
+
     </center>
+
+    <br><br>
+
+    <!-- JavaScript connection -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
