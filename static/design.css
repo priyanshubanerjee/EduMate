@@ -1,0 +1,809 @@
+
+body {
+    background-color: #051b42;
+    margin: 0;
+    padding: 0;
+}
+
+
+#logo {
+    width: 170px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+    margin: 1px auto;
+}
+
+
+#h01 {
+    color: rgb(250, 255, 173);
+    font-size: 50px;
+    text-align: center;
+}
+
+#h02 {
+    color: rgb(177, 254, 177);
+    font-size: 20px;
+    text-align: center;
+}
+
+
+#h01::before,
+#h01::after {
+    content: "";
+    display: inline-block;
+    width: 100px;
+    height: 3px;
+    background-color: rgb(186, 255, 253);
+    vertical-align: middle;
+    margin: 0 20px;
+}
+
+
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+#robot {
+    width: 350px;
+    height: auto;
+}
+
+.welcome-text {
+    flex: 1;
+    border: 3px solid #91ff24;
+    border-radius: 20px;
+    padding: 25px;
+    margin-left: -15px;
+}
+
+#he2 {
+    color: rgb(18, 121, 218);
+    font-size: 30px;
+}
+
+#p01 {
+    color: white;
+    font-size: 25px;
+}
+
+#h03 {
+    color: rgb(255, 245, 64);
+    font-size: 30px;
+}
+
+
+.upload-container,
+.study-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    width: 95%;
+    margin: 30px auto;
+}
+
+
+
+#exam-logo {
+    width: 340px;
+    height: 390px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+#learn-logo{
+     width: 450px;
+    height: 490px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+
+.upload-section,
+.test-section {
+    flex: 1;
+    min-width: 0;
+    height: 350px;
+    box-sizing: border-box;
+
+    background-color: #102b58;
+    border: 3px solid #91ff24;
+    border-radius: 12px;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.upload-section h2,
+.test-section h2 {
+    color: rgb(255, 246, 83);
+    font-size: 30px;
+    text-align: center;
+}
+
+.upload-section p,
+.test-section p {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.upload-section input[type="file"],
+.test-section input[type="file"] {
+    font-size: 17px;
+    padding: 8px;
+    margin: 12px auto;
+    max-width: 100%;
+}
+
+
+#learn-btn,
+#startTest {
+    display: block;
+    margin: 15px auto;
+    padding: 12px 35px;
+
+    background-color: #91ff24;
+    color: navy;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+#learn-btn:hover,
+#startTest:hover {
+    background-color: yellow;
+    transform: scale(1.05);
+}
+
+
+.my-line {
+    width: 90%;
+    border: none;
+    border-top: 3px solid #91ff24;
+    margin: 30px auto;
+}
+
+.my-line {
+    width: 90%;
+    border: none;
+    border-top: 3px dashed rgb(247, 255, 7);
+    margin: 30px auto;
+}
+
+
+
+
+.about-header {
+    text-align: center;
+    padding: 20px;
+}
+
+.about-title {
+    color: rgb(250, 255, 173);
+    font-size: 45px;
+    text-decoration: underline;
+}
+
+.about-subtitle {
+    color: rgb(177, 254, 177);
+    font-size: 22px;
+}
+
+.about-container {
+    width: 85%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.about-intro,
+.about-features,
+.mission {
+    background-color: #102b58;
+    border: 2px solid #91ff24;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 25px 0;
+}
+
+.about-container h2 {
+    color: rgb(255, 246, 83);
+    font-size: 27px;
+}
+
+.about-container p {
+    color: white;
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+.about-tagline {
+    color: rgb(177, 254, 177);
+    margin: 35px 0;
+}
+
+.home-link {
+    display: inline-block;
+    background-color: #ffebc2;
+    color: rgb(5, 5, 77);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.home-link:hover {
+    background-color: rgb(147, 184, 254);
+    transform: scale(1.05);
+}
+
+
+.quiz-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.question-box {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.question-box label {
+    display: inline-block;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.quiz-container button {
+    padding: 12px 25px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.quiz-result {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+/* =====================================
+   EDUMATE AI QUIZ PAGE
+===================================== */
+
+.quiz-wrapper {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Quiz heading */
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.quiz-header h1 {
+    color: #263b70;
+    font-size: 30px;
+}
+
+/* Quiz purpose */
+
+#quiz-purpose {
+    color: #666;
+    font-size: 15px;
+}
+
+/* Progress text */
+
+.progress-text {
+    color: #666;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Progress bar */
+
+.progress-bar {
+    width: 100%;
+    height: 9px;
+    background: #e5e5e5;
+    border-radius: 10px;
+    margin: 15px 0 25px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #4568dc;
+    transition: width 0.3s ease;
+}
+
+/* Question */
+
+.question {
+    font-size: 21px;
+    font-weight: bold;
+    color: #263b70;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Answer options */
+
+.option {
+    display: block;
+    padding: 15px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #333;
+}
+
+.option:hover {
+    background: #f0f3ff;
+    border-color: #4568dc;
+}
+
+.option input {
+    margin-right: 10px;
+    accent-color: #4568dc;
+}
+
+/* Navigation buttons */
+
+.quiz-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.quiz-buttons button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 7px;
+    background: #4568dc;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.quiz-buttons button:hover {
+    background: #304fbd;
+}
+
+.quiz-buttons button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+/* Hidden elements */
+
+.hidden {
+    display: none !important;
+}
+
+/* Quiz result */
+
+#result {
+    margin-top: 25px;
+    line-height: 1.7;
+    color: #333;
+}
+
+#result h2 {
+    color: #263b70;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#result div {
+    background: #f8f9fc;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Back to homepage */
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    color: #4568dc;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 600px) {
+
+    .quiz-wrapper {
+        margin: 10px auto;
+        padding: 20px;
+    }
+
+    .quiz-header h1 {
+        font-size: 24px;
+    }
+
+    .question {
+        font-size: 18px;
+    }
+
+    .quiz-buttons button {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+}
+
+/* =====================================
+   EDUMATE - LEARN NOW PAGE
+===================================== */
+
+.learn-page {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+    padding: 25px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.learn-container {
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+/* HEADER */
+
+.learn-header {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+}
+
+.learn-header h1 {
+    margin: 0 0 12px;
+    font-size: 30px;
+}
+
+.learn-header p {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.95;
+}
+
+/* STUDY MATERIAL */
+
+.study-section {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.study-section h2 {
+    color: #1e293b;
+    margin-top: 0;
+}
+
+#pdf-status {
+    color: #16a34a;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.learning-note {
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 13px;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* CHAT SECTION */
+
+.chat-section {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.chat-section h2 {
+    color: #1e293b;
+    margin-top: 0;
+}
+
+/* CHAT BOX */
+
+.chat-box {
+    height: 400px;
+    overflow-y: auto;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* BOT MESSAGE */
+
+.bot-message {
+    align-self: flex-start;
+    background: #1c0077;
+    color: #f8f5ea;
+    padding: 13px 16px;
+    border-radius: 12px 12px 12px 2px;
+    max-width: 80%;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* USER MESSAGE */
+
+.user-message {
+    align-self: flex-end;
+    background: #1d6100;
+    color: white;
+    padding: 13px 16px;
+    border-radius: 12px 12px 2px 12px;
+    max-width: 80%;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* CHAT INPUT */
+
+.chat-input-area {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+#question-input {
+    flex: 1;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font-size: 15px;
+    resize: vertical;
+    outline: none;
+    font-family: Arial, sans-serif;
+}
+
+#question-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+/* ASK BUTTON */
+
+#ask-button {
+    background: #331f76;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#ask-button:hover {
+    background: #1d4ed8;
+}
+
+#ask-button:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+}
+
+/* STATUS */
+
+#chat-status {
+    color: #64748b;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+/* BACK LINK */
+
+.learn-page .back-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.learn-page .back-link:hover {
+    text-decoration: underline;
+}
+
+/* =====================================
+   EDUMATE MARKDOWN ANSWER DESIGN
+===================================== */
+
+.bot-answer {
+    min-width: 0;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.bot-answer h1,
+.bot-answer h2,
+.bot-answer h3 {
+    color: #163b78;
+    margin: 12px 0;
+}
+
+.bot-answer p {
+    margin: 8px 0;
+}
+
+.bot-answer strong {
+    color: #163b78;
+    font-weight: bold;
+}
+
+.bot-answer em {
+    font-style: italic;
+}
+
+.bot-answer ul,
+.bot-answer ol {
+    padding-left: 25px;
+    margin: 10px 0;
+}
+
+.bot-answer li {
+    margin: 5px 0;
+}
+
+.bot-answer pre {
+    background: #051b42;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+    white-space: pre;
+}
+
+.bot-answer code {
+    background: #dbeafe;
+    color: #163b78;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.bot-answer pre code {
+    background: transparent;
+    color: #ffffff;
+    padding: 0;
+}
+
+.bot-answer blockquote {
+    border-left: 4px solid #2563eb;
+    padding-left: 12px;
+    color: #475569;
+    margin: 12px 0;
+}
+
+.bot-answer hr {
+    border: none;
+    border-top: 1px solid #bfdbfe;
+    margin: 15px 0;
+}
+
+
+/* =====================================
+   EDUMATE CHATBOT AVATAR + LAYOUT
+===================================== */
+
+/* Arrange robot and answer side by side */
+.bot-message.bot-welcome {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 90%;
+    white-space: normal;
+}
+
+/* Robot profile picture */
+.bot-message.bot-welcome img {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: white;
+    padding: 3px;
+}
+
+/* Markdown answer content */
+.bot-answer {
+    flex: 1;
+    min-width: 0;
+    white-space: normal;
+}
+
+/* Make Markdown paragraphs look clean */
+.bot-answer p:first-child {
+    margin-top: 0;
+}
+
+.bot-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Keep code blocks inside the chat */
+.bot-answer pre {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Mobile chat layout */
+@media (max-width: 600px) {
+
+    .bot-message.bot-welcome {
+        max-width: 100%;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .bot-message.bot-welcome img {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+    }
+
+}

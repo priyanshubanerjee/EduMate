@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EduMate | AI Quiz</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='design.css') }}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .quiz-wrapper {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .quiz-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .quiz-robot {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 2px solid #4568dc;
+            background: white;
+            padding: 3px;
+        }
+
+        .quiz-header h1 {
+            color: #263b70;
+        }
+
+        .progress-text {
+            color: #666;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 9px;
+            background: #e5e5e5;
+            border-radius: 10px;
+            margin: 15px 0 25px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #4568dc;
+            transition: width 0.3s;
+        }
+
+        .question {
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .option {
+            display: block;
+            padding: 15px;
+            margin: 12px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #f0f3ff;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .quiz-buttons button {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 7px;
+            background: #4568dc;
+            color: white;
+            cursor: pointer;
+        }
+
+        .quiz-buttons button:disabled {
+            background: #aaa;
+            cursor: not-allowed;
+        }
+
+        #result {
+            margin-top: 25px;
+            line-height: 1.7;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #4568dc;
+            text-decoration: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="quiz-wrapper">
+
+        <!-- QUIZ HEADER -->
+
+        <div class="quiz-header">
+
+            <div class="quiz-brand">
+
+                <img
+                    src="{{ url_for('static', filename='robot.png') }}"
+                    alt="EduMate Robot"
+                    class="quiz-robot">
+
+                <h1>EduMate AI Quiz</h1>
+
+            </div>
+
+            <p id="quiz-purpose">
+                Test your knowledge with AI-generated questions.
+            </p>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <p class="progress-text" id="progress-text">
+            Question 1 of 10
+        </p>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+
+        <!-- QUESTION AREA -->
+
+        <div id="question-area">
+
+            <h2 id="question-text" class="question">
+                Loading question...
+            </h2>
+
+            <div id="options-area"></div>
+
+        </div>
+
+
+        <!-- NAVIGATION BUTTONS -->
+
+        <div class="quiz-buttons" id="quiz-buttons">
+
+            <button id="previous-btn" disabled>
+                Previous
+            </button>
+
+            <button id="next-btn">
+                Next
+            </button>
+
+            <button id="submit-btn" class="hidden">
+                Submit Quiz
+            </button>
+
+        </div>
+
+
+        <!-- RESULT AREA -->
+
+        <div id="result"></div>
+
+
+        <!-- BACK TO HOME -->
+
+        <a href="{{ url_for('home') }}" class="back-link">
+            ← Back to Homepage
+        </a>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='quiz.js') }}"></script>
+
+</body>
+</html>

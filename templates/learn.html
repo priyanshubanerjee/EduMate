@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EduMate | Learn Now</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='design.css') }}">
+
+    <style>
+        /* HEADER */
+
+        .learn-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .learn-robot {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #4568dc;
+            padding: 4px;
+        }
+
+        /* CHAT ROBOT */
+
+        .bot-welcome {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .bot-welcome img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: white;
+            border: 1px solid #4568dc;
+            padding: 3px;
+            flex-shrink: 0;
+        }
+
+        /* MARKDOWN ANSWER AREA */
+
+        .bot-answer {
+            min-width: 0;
+            flex: 1;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+            color: #ffffff !important;
+        }
+
+        /* FORCE WHITE TEXT INSIDE BOT ANSWERS */
+
+        .chat-box .bot-message .bot-answer,
+        .chat-box .bot-message .bot-answer * {
+            color: #ffffff !important;
+        }
+
+        /* HEADINGS */
+
+        .bot-answer h1 {
+            font-size: 25px;
+            margin: 12px 0;
+        }
+
+        .bot-answer h2 {
+            font-size: 22px;
+            margin: 12px 0 8px;
+        }
+
+        .bot-answer h3 {
+            font-size: 19px;
+            margin: 12px 0 8px;
+        }
+
+        /* PARAGRAPHS */
+
+        .bot-answer p {
+            margin: 8px 0;
+        }
+
+        /* BOLD AND ITALIC */
+
+        .bot-answer strong,
+        .bot-answer b {
+            font-weight: 700;
+        }
+
+        .bot-answer em,
+        .bot-answer i {
+            font-style: italic;
+        }
+
+        /* LISTS */
+
+        .bot-answer ul,
+        .bot-answer ol {
+            padding-left: 25px;
+            margin: 10px 0;
+        }
+
+        .bot-answer li {
+            margin-bottom: 7px;
+        }
+
+        /* INLINE CODE */
+
+        .bot-answer code {
+            font-family: monospace;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        /* CODE BLOCKS */
+
+        .bot-answer pre {
+            padding: 12px;
+            overflow-x: auto;
+            border-radius: 8px;
+            background: #21105c !important;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            white-space: pre;
+        }
+
+        .bot-answer pre code {
+            background: transparent;
+            padding: 0;
+        }
+
+        /* BLOCKQUOTES */
+
+        .bot-answer blockquote {
+            margin: 10px 0;
+            padding-left: 12px;
+            border-left: 3px solid #ffffff;
+        }
+
+        /* TABLES */
+
+        .bot-answer table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+        }
+
+        .bot-answer th,
+        .bot-answer td {
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* LINKS */
+
+        .bot-answer a {
+            text-decoration: underline;
+        }
+
+        /* HORIZONTAL LINE */
+
+        .bot-answer hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            margin: 15px 0;
+        }
+
+    </style>
+</head>
+
+<body class="learn-page">
+
+    <div class="learn-container">
+
+        <!-- HEADER -->
+
+        <header class="learn-header">
+
+            <div class="learn-brand">
+
+                <img
+                    src="{{ url_for('static', filename='robot.png') }}"
+                    alt="EduMate Robot"
+                    class="learn-robot">
+
+                <h1>EduMate Learning Assistant</h1>
+
+            </div>
+
+            <p>
+                Your friendly AI study partner.
+                Learn from your uploaded PDF and clear your doubts.
+            </p>
+
+        </header>
+
+
+        <!-- STUDY MATERIAL SECTION -->
+
+        <section class="study-section">
+
+            <h2>Your Study Material</h2>
+
+            <p id="pdf-status">
+                Your PDF has been uploaded successfully.
+            </p>
+
+            <div class="learning-note">
+                Ask questions related to your uploaded PDF only.
+            </div>
+
+        </section>
+
+
+        <!-- CHAT SECTION -->
+
+        <section class="chat-section">
+
+            <h2>Chat with EduMate 🤖</h2>
+
+            <div id="chat-box" class="chat-box">
+
+                <div class="bot-message bot-welcome">
+
+                    <img
+                        src="{{ url_for('static', filename='robot.png') }}"
+                        alt="EduMate">
+
+                    <span>
+                        Hello! I am EduMate. Ask me anything covered
+                        in your uploaded study material.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION INPUT -->
+
+            <div class="chat-input-area">
+
+                <textarea
+                    id="question-input"
+                    placeholder="Ask your doubt from the PDF..."
+                    rows="2"
+                    maxlength="2000">
+                </textarea>
+
+                <button id="ask-button">
+                    Ask EduMate
+                </button>
+
+            </div>
+
+            <p id="chat-status"></p>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <a href="{{ url_for('home') }}" class="back-link">
+            ← Back to Homepage
+        </a>
+
+    </div>
+
+
+    <!-- MARKDOWN LIBRARY -->
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- HTML SANITIZER -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.6/purify.min.js"></script>
+
+    <!-- EDUMATE JAVASCRIPT -->
+
+    <script src="{{ url_for('static', filename='learn.js') }}"></script>
+
+</body>
+</html>

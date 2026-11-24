@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EduMate: Your AI Study Companion</title>
+
+    <!-- CSS connection -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='design.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Logo -->
+    <center>
+        <img src="{{ url_for('static', filename='logo.png') }}" id="logo">
+    </center>
+
+    <!-- Website title -->
+    <center>
+        <h1 id="h01"><b><u>EduMate</u></b></h1>
+    </center>
+
+    <center>
+        <h2 id="h02"><i>Your AI Study Companion</i></h2>
+    </center>
+
+    <br><br>
+
+    <!-- Welcome section -->
+    <section class="welcome">
+
+        <img src="{{ url_for('static', filename='robot.png') }}" id="robot">
+
+        <div class="welcome-text">
+
+            <h2 id="he2">Welcome to EduMate!</h2>
+
+            <p id="p01">
+                Your personal AI study companion is here to
+                make learning easier and smarter. Upload your
+                study PDFs, ask questions, clear your doubts,
+                and generate practice tests to prepare for
+                your exams.
+            </p>
+
+            <h3 id="h03">
+                Learn at your own pace.
+                Study smarter, not harder!
+            </h3>
+
+        </div>
+
+    </section>
+
+    <br><br><br>
+
+    <hr class="my-line">
+
+    <!-- Learn section -->
+    <div class="upload-container">
+
+        <img src="{{ url_for('static', filename='Lmw.png') }}" id="learn-logo">
+
+        <section class="upload-section">
+
+            <h2>LET'S LEARN WITH EduMate</h2>
+
+            <p id="pdfInfo">
+                Select and upload a PDF to start learning
+                with EduMate. Let's get started!
+            </p>
+
+            <input type="file" id="pdfFile" accept=".pdf">
+
+            <button type="button" id="learn-btn">
+                Let's Learn
+            </button>
+
+        </section>
+
+    </div>
+
+    <br><br><br>
+
+    <!-- Test section -->
+    <div class="study-container">
+
+        <section class="test-section">
+
+            <h2 id="test-heading">Test Your Knowledge</h2>
+
+            <p id="testpdfInfo">
+                Upload a PDF and generate MCQs to test your knowledge!
+            </p>
+
+            <input type="file" id="testPdf" accept=".pdf">
+
+            <button type="button" id="startTest">
+                Start Test
+            </button>
+
+        </section>
+
+        <img src="{{ url_for('static', filename='Exam.png') }}" id="exam-logo">
+
+    </div>
+
+    <!-- JavaScript connection -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <!-- About page link -->
+    <center>
+        <a href="{{ url_for('about') }}" class="home-link">
+            About EduMate
+        </a>
+    </center>
+
+</body>
+</html>
