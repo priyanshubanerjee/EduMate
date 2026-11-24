@@ -807,3 +807,364 @@ body {
     }
 
 }
+
+/* =========================================
+   EDUMATE - COMPLETE MOBILE RESPONSIVE FIX
+========================================= */
+
+/* Global responsive foundation */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Images should never overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =========================================
+   TABLETS AND MOBILE PHONES
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* MAIN HEADING */
+    #logo {
+        width: 140px;
+        height: 70px;
+    }
+
+    #h01 {
+        font-size: clamp(25px, 7vw, 36px);
+        padding: 0 12px;
+    }
+
+    #h01::before,
+    #h01::after {
+        display: none;
+    }
+
+    #h02 {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    /* WELCOME SECTION */
+    .welcome {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        padding: 15px;
+    }
+
+    #robot {
+        width: min(75%, 260px);
+        height: auto;
+    }
+
+    .welcome-text {
+        width: 100%;
+        flex: none;
+        margin: 0;
+        padding: 20px;
+        border-width: 2px;
+    }
+
+    #he2 {
+        font-size: 24px;
+    }
+
+    #p01 {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    #h03 {
+        font-size: 23px;
+    }
+
+    /* UPLOAD AND TEST SECTIONS */
+    .upload-container,
+    .study-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        width: 100%;
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+
+    #exam-logo,
+    #learn-logo {
+        width: min(80%, 250px);
+        height: auto;
+        max-height: 280px;
+        object-fit: contain;
+        flex-shrink: 1;
+    }
+
+    /* GREEN OUTER BOXES */
+    .upload-section,
+    .test-section {
+        width: 100%;
+        max-width: 500px;
+        min-width: 0;
+
+        height: auto;
+        min-height: 260px;
+
+        padding: 22px 16px;
+        margin: 0 auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        border: 2px solid #91ff24;
+        border-radius: 15px;
+    }
+
+    .upload-section h2,
+    .test-section h2 {
+        font-size: 23px;
+        line-height: 1.4;
+        margin: 10px 0;
+    }
+
+    .upload-section p,
+    .test-section p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 10px 0;
+    }
+
+    .upload-section input[type="file"],
+    .test-section input[type="file"] {
+        width: 100%;
+        max-width: 100%;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #learn-btn,
+    #startTest {
+        width: 100%;
+        max-width: 240px;
+        padding: 13px 15px;
+        font-size: 16px;
+    }
+
+    /* DIVIDER */
+    .my-line {
+        width: 90%;
+        margin: 22px auto;
+    }
+
+    /* ABOUT PAGE */
+    .about-header {
+        padding: 15px;
+    }
+
+    .about-title {
+        font-size: 30px;
+    }
+
+    .about-subtitle {
+        font-size: 17px;
+    }
+
+    .about-container {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .about-intro,
+    .about-features,
+    .mission {
+        padding: 18px;
+        margin: 18px 0;
+    }
+
+    .about-container h2 {
+        font-size: 22px;
+    }
+
+    .about-container p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    /* QUIZ PAGE */
+    .quiz-container,
+    .quiz-wrapper {
+        width: calc(100% - 24px);
+        max-width: 100%;
+        margin: 15px auto;
+        padding: 18px;
+    }
+
+    .quiz-header h1 {
+        font-size: 24px;
+    }
+
+    .question {
+        font-size: 18px;
+    }
+
+    .question-box {
+        padding: 12px;
+    }
+
+    .option {
+        padding: 13px;
+        font-size: 15px;
+    }
+
+    .quiz-buttons {
+        flex-wrap: wrap;
+    }
+
+    .quiz-buttons button {
+        flex: 1 1 110px;
+        padding: 12px 8px;
+    }
+
+    /* LEARN PAGE */
+    .learn-page {
+        padding: 12px;
+    }
+
+    .learn-container {
+        width: 100%;
+        margin: 12px auto;
+    }
+
+    .learn-header {
+        padding: 25px 15px;
+    }
+
+    .learn-header h1 {
+        font-size: 24px;
+    }
+
+    .learn-header p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .study-section,
+    .chat-section {
+        padding: 17px;
+        margin-bottom: 18px;
+    }
+
+    /* CHAT BOX */
+    .chat-box {
+        height: 380px;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .bot-message,
+    .user-message {
+        max-width: 92%;
+        font-size: 14px;
+        padding: 11px;
+    }
+
+    .bot-message.bot-welcome {
+        max-width: 100%;
+        gap: 8px;
+    }
+
+    .bot-message.bot-welcome img {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+    }
+
+    /* CHAT INPUT */
+    .chat-input-area {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #question-input {
+        width: 100%;
+        min-width: 0;
+        font-size: 16px;
+    }
+
+    #ask-button {
+        width: 100%;
+        padding: 13px;
+    }
+
+    /* CODE BLOCKS */
+    .bot-answer pre {
+        max-width: 100%;
+        overflow-x: auto;
+        font-size: 13px;
+    }
+
+    .bot-answer img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* BACK LINKS */
+    .home-link {
+        max-width: calc(100% - 30px);
+        margin: 15px;
+        padding: 12px 20px;
+    }
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media screen and (max-width: 380px) {
+
+    #h01 {
+        font-size: 25px;
+    }
+
+    .upload-section,
+    .test-section {
+        padding: 16px 12px;
+    }
+
+    .upload-section h2,
+    .test-section h2 {
+        font-size: 20px;
+    }
+
+    .upload-section p,
+    .test-section p {
+        font-size: 15px;
+    }
+
+    .quiz-wrapper {
+        padding: 13px;
+    }
+
+    .learn-page {
+        padding: 8px;
+    }
+}
