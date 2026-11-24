@@ -1,0 +1,1 @@
+web: gunicorn edumate:app
