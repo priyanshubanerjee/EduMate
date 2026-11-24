@@ -33,6 +33,12 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GEMINI_MODEL = "gemini-flash-lite-latest"
 GROQ_MODEL = "openai/gpt-oss-20b"
 
+# Diagnostic routes are disabled by default.
+# Enable locally only when you need to test AI connections.
+ENABLE_DIAGNOSTIC_ROUTES = (
+    os.getenv("ENABLE_DIAGNOSTIC_ROUTES", "false").lower() == "true"
+)
+
 gemini_client = None
 groq_client = None
 
@@ -53,13 +59,24 @@ if GROQ_API_KEY:
 
 app = Flask(__name__)
 
-app.secret_key = os.getenv(
-    "FLASK_SECRET_KEY",
-    "edumate-development-key"
-)
+# Secret key must be provided through environment variables.
+app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
+if not app.secret_key:
+    raise RuntimeError(
+        "FLASK_SECRET_KEY is missing. "
+        "Configure it in your environment."
+    )
+
+# Maximum PDF upload size: 10 MB
 app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024
 
+# Session security
+app.config["SESSION_COOKIE_HTTPONLY"] = True
+app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+
+# In-memory storage
+# Note: This data will be lost when the server restarts.
 learn_store = {}
 learn_chats = {}
 
@@ -360,18 +377,14 @@ STUDY MATERIAL:
             f"Expected 10 questions, received {received}."
         )
 
-    # ---------------------------------
-    # BALANCED ANSWER POSITIONS
+    # Balanced answer positions:
     # A = 3, B = 3, C = 2, D = 2
-    # ---------------------------------
 
     answer_positions = list("AAABBBCCDD")
 
     random.shuffle(answer_positions)
 
-    # ---------------------------------
-    # VALIDATE AND RANDOMIZE
-    # ---------------------------------
+    # Validate and randomize options
 
     for index, question in enumerate(questions):
 
@@ -802,6 +815,9 @@ def upload():
 @app.route("/test-groq")
 def test_groq():
 
+    if not ENABLE_DIAGNOSTIC_ROUTES:
+        return jsonify({"error": "Not found"}), 404
+
     if groq_client is None:
 
         return jsonify({
@@ -833,7 +849,7 @@ def test_groq():
             "message": answer
         }), 200
 
-    except Exception as error:
+    except Exception:
 
         print("\n========== GROQ TEST ERROR ==========")
         traceback.print_exc()
@@ -841,7 +857,7 @@ def test_groq():
 
         return jsonify({
             "status": "error",
-            "error": str(error)
+            "error": "Groq connection test failed."
         }), 500
 
 
@@ -851,6 +867,9 @@ def test_groq():
 
 @app.route("/test-gemini")
 def test_gemini():
+
+    if not ENABLE_DIAGNOSTIC_ROUTES:
+        return jsonify({"error": "Not found"}), 404
 
     if gemini_client is None:
 
@@ -875,7 +894,7 @@ def test_gemini():
             "message": response.text
         }), 200
 
-    except Exception as error:
+    except Exception:
 
         print("\n========== GEMINI TEST ERROR ==========")
         traceback.print_exc()
@@ -883,7 +902,7 @@ def test_gemini():
 
         return jsonify({
             "status": "error",
-            "error": str(error)
+            "error": "Gemini connection test failed."
         }), 500
 
 
@@ -893,6 +912,9 @@ def test_gemini():
 
 @app.route("/test-ai")
 def test_ai():
+
+    if not ENABLE_DIAGNOSTIC_ROUTES:
+        return jsonify({"error": "Not found"}), 404
 
     try:
 
@@ -922,4 +944,8 @@ def test_ai():
 
 if __name__ == "__main__":
 
-    app.run(debug=True)
+    app.run(
+        host="127.0.0.1",
+        port=int(os.getenv("PORT", 5000)),
+        debug=True
+    )
